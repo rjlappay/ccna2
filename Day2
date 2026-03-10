@@ -1,0 +1,151 @@
+config t
+   hostname COREbaba-61
+   enable secret pass
+   service password-encryption
+   no logging console
+   no ip domain-lookup
+   line console 0
+     password pass
+     login
+     exec-timeout 0 0
+    line vty 0 14
+      password pass
+      login
+      exec-timeout 0 0
+   Int Vlan 1
+     no shutdown
+	 ip add 10.61.1.4 255.255.255.0
+	 description MGMTDATA
+
+
+
+
+
+10.0.0.0
+NetworkBattalion:                    CivilBattalion:
+2300devices                           850Devices
+C: 12b                                10b
+S:/32-/12=/20                         /22
+I:3rd,16i                             3rd,4i
+Subnet:
+10.0.16.0/20                          10.0.4.0/22
+1st usable
+10.0.16.1/20                          10.0.4.1/22
+last  IP/BC:
+10.0.31.255/20                          10.0.7.255/22
+
+not yours:
+10.0.32.0/20                          10.0.8.0/22
+
+
+Implementationof NetworkDesignTemplate:
+config t
+vlan 12
+name NETB.army.mil.ph
+int vlan 12
+no shutdown
+ip address 10.0.16.1 255.255.240.0
+ip dhcp excluded-add 10.0.16.1 10.0.16.100
+ip dhcp pool netb.army.mil.ph
+network 10.0.16.0 255.255.240.0
+default-router 10.0.16.1
+domain-name netb.army.mil.ph
+dns-server 8.8.8.8
+option 150 ip 10.61.100.8
+int fa 0/7
+switchport access vlan 12
+end
+sh vlan br
+sh ip dhcp binding
+
+Implementationof CivilBattalionDesignTemplate:
+config t
+vlan 10
+name ceb.army.mil.ph
+int vlan 10
+no shutdown
+ip address 10.0.4.1 255.255.252.0
+ip dhcp excluded-add 10.0.4.1 10.0.4.100
+ip dhcp pool ceb.army.mil.ph
+network 10.0.4.0 255.255.252.0
+default-router 10.0.4.1
+domain-name ceb.army.mil.ph
+dns-server 8.8.8.8
+option 150 ip 10.12.100.8
+int fa 0/7
+switchport access vlan 10
+end
+sh vlan br
+sh ip dhcp binding
+
+
+
+10.0.0.0/8 - 110 SmartHelmets:
+C: 7B
+S: /32-/7=/25
+I: 4th, 128i
+
+10.0.0.128/25
+1st:10.0.0.129/25
+bc:10.0.0.255/25
+not yours:
+10.0.1.0/128/25
+
+Implementationof 4thinfbatDesignTemplate:
+config t
+vlan 7
+name 4thbat.army.mil.ph
+int vlan 7
+no shutdown
+ip address 10.0.0.129 255.255.255.128
+ip dhcp excluded-add 10.0.0.129 10.0.0.139
+ip dhcp pool 4thbat.army.mil.ph
+network 10.0.0.128 255.255.255.128
+default-router 10.0.0.129
+domain-name 4thbat.army.mil.ph
+dns-server 8.8.8.8
+option 150 ip 10.12.100.8
+int fa 0/9
+switchport access vlan 7
+end
+sh vlan br
+sh ip dhcp binding
+
+project4: Army Aviation Regiment
+4500 Smart Drones Use 10.0.0.0/8
+C:13b
+S:/32-/13=/19
+I:3rd,32i
+1st:10.0.32.0/19
+BC: 10.0.32.1
+10.0.63.255
+Not: 10.0.64.0/19
+
+
+Implementationof AARbatDesignTemplate:
+config t
+vlan 13
+name AAB.army.mil.ph
+int vlan 13
+no shutdown
+ip address 10.0.32.1 255.255.224.0
+ip dhcp excluded-add 10.0.32.1 10.0.32.99
+ip dhcp pool AAB.army.mil.ph
+network 10.0.32.0 255.255.224.0
+default-router 10.0.32.1
+domain-name AAB.army.mil.ph
+dns-server 8.8.8.8
+option 150 ip 10.12.100.8
+int fa 0/11
+switchport access vlan 13
+end
+sh vlan br
+sh ip dhcp binding
+
+
+
+Branches of Phil Military:
+GHQ:
+ARMY:
+NAVY:
+AIRFORCE:
