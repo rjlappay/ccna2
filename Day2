@@ -145,7 +145,39 @@ sh ip dhcp binding
 
 
 Branches of Phil Military:
-GHQ:
-ARMY:
-NAVY:
-AIRFORCE:
+GHQ:1200
+ARMY:100k
+NAVY:20k
+AIRFORCE:1,000
+
+Project1:
+GHQ will Allocate 10.0.0.0/8 to 8 militaryBranches
+8Branches            16Branches             32Branches
+convert: to Riase
+2R_         r3       r4                     r5
+addt/
+/8+/3=/11             /8+/4=12             /8+/13
+IpasoksaHiwa:
+ipasok32i2nd         ipasok16i2nd         ipasok8i2nd
+GHQ:10.32.0.0/11     10.16.0.0/12          10.8.0.0/13
+Army: 10.64.0.0/11    10.32.0.0/12         10.16.0.0/13
+Navy: 10.96.0.0/11    10.48.0.0/12         10.24.0.0/13
+AirF: 10.128.0.0/11   10.64.0.0/12         10.32.0.0/13
+CyCm: 10.160.0.0/11   10.80.0.0/12         10.40.0.0/13
+
+Project2:
+128Branches             64Branches
+r7                      r6
+add:
+/8+/7=/15             /8+/6=/14
+IpasoksaHiwa:
+ipasok2i2nd			ipasok4i2nd
+GHQ:10.2.0.0/15     10.4.0.0/14
+Army: 10.4.0.0/15    10.8.0.0/14
+Navy: 10.6.0.0/15     10.12.0.0/14
+AirF: 10.8.0.0/15     10.16.0.0/14
+
+
+
+
+fafa:baba::6161
