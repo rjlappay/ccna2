@@ -34,3 +34,35 @@ ip add 10.61.1.4 255.255.255.0
 ipv6 enable
 ipv6 address cafe:cafe:cafe:cafe::eeee/64
 end
+
+
+Task2 How to get Real world IPV6 Experience:
+2001:fd80:2f10:1030::/64= NETB IPV6 SUbNET:
+32 Army Offices:
+Convert: 
+
+/64+/10
+IPV6 DHCP SERVER FOR DATACENTER
+config t
+int vlan 108
+ipv6 enable
+ipv6 add fabe:bebe:fabe:bebe::1/67
+ipv6 dhcp server 8OFFICE
+ipv6 nd managed-config-flag
+ipv6 nd other-config-flag
+no shut
+ipv6 dhcp pool 8OFFICE
+address prefix fabe:bebe:fabe:bebe::/67
+int fa0/5
+switchport access vlan 108
+int fa0/7
+switchport access vlan 108
+end
+
+
+clear ipv6 dhcp *
+
+
+
+ipv4deployment:
+
