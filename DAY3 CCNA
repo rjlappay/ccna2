@@ -1,0 +1,36 @@
+conf t
+hostname COREbaba-61
+enable secrtet pass
+service password-encryption
+no logging console
+no ip domain-lookup
+line console 0
+password pass
+login
+exec-timeout 0 0
+line vty 0 14
+password pass
+login
+exec-timeout 0 0
+
+
+conf t
+sdm prefer dual-ipv4-and-ipv6 routing
+end
+wr
+
+sh sdm prefer dual-ipv4-and-ipv6 routing
+
+
+
+
+Task 2:
+Conf t
+ip routing
+ipv6 unicast-routing
+int vlan 1
+no shut
+ip add 10.61.1.4 255.255.255.0
+ipv6 enable
+ipv6 address cafe:cafe:cafe:cafe::eeee/64
+end
