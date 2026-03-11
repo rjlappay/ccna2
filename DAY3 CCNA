@@ -66,3 +66,81 @@ clear ipv6 dhcp *
 
 ipv4deployment:
 
+config t
+vlan 108
+name 0OFFICE
+int vlan 108
+no shutdown
+ip address 10.32.0.1 255.224.0.0
+ip dhcp excluded-add 10.32.0.0 10.32.0.99
+ip dhcp pool 0OFFICE
+network 10.32.0.0 255.224.0.0
+default-router 10.32.0.0
+domain-name NETB.ARMY.MIL.PH
+dns-server 8.8.8.8
+end
+
+For Ultimate IPV4/IPV6 Senior SME For ARMY INFRA:
+
+ipv6:  baba:baba:baba::/48
+ipv4:   172.16.0.0/16
+subnet to: 512 Office:
+Convert: 512+ 2r9
+addto/: /64+/
+IpasokMo:
+8 4 2 1     8 4 2 1    8 4 2 1     8 4 2 1 
+IPV6: 0000    0080     0100    0180    0200     0280     0300     0380
+
+/48+/9=/57 
+172.16.0.0/16
+C: /16+/9=/25
+
+
+IPV4
+config t
+vlan 5
+name 512OFFICE
+int vlan 5
+no shutdown
+ip address 172.16.0.129 255.255.255.128
+ip dhcp excluded-add 172.16.0.129 172.16.0.139
+ip dhcp pool 512OFFICE
+network 172.16.0.128 255.255.255.128
+default-router 172.16.0.129
+domain-name NETB.ARMY.MIL.PH
+dns-server 8.8.8.8
+int fa0/5
+shut
+no shut
+switchport access vlan 5
+int fa0/7
+shut
+no shut
+switchport access vlan 5
+end
+
+IPV6
+
+config t
+int vlan 5
+ipv6 enable
+ipv6 add baba:baba:baba:0380::1/57
+ipv6 dhcp server 512OFFICE
+ipv6 nd managed-config-flag
+ipv6 nd other-config-flag
+no shut
+ipv6 dhcp pool 512FFICE
+address prefix baba:baba:baba:0380::/57
+int fa0/5
+shut
+no shut
+switchport access vlan 5
+int fa0/7
+shut
+no shut
+switchport access vlan 5
+end
+
+
+TASK4: LINUX for Network ENG/ADMINS:
+rm -r/etc/udec/rules.d/70-persistent.net
