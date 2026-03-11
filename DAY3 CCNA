@@ -144,3 +144,23 @@ end
 
 TASK4: LINUX for Network ENG/ADMINS:
 rm -r/etc/udec/rules.d/70-persistent.net
+
+
+"LINUX"
+P1>ENABLE
+Password: 
+P1#config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+P1(config)#lldp run
+P1(config)#int e0/0
+P1(config-if)#lldp transmit
+P1(config-if)#lldp receive
+P1(config-if)#int e0/1
+P1(config-if)#lldp receive
+P1(config-if)#lldp transmit
+P1(config-if)#int e1/0
+P1(config-if)#lldp receive
+P1(config-if)#lldp transmit
+P1(config-if)#int e1/1
+P1(config-if)#lldp receive
+P1(config-if)#lldp transmit
