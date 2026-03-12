@@ -263,10 +263,10 @@ conf t
   destination-pattern 11..
   session target ipv4:10.11.11.1
   codec g711ULAW
- !dial-peer voice 12 Voip
-  !destination-pattern 12..
-  !session target ipv4:10.12.12.1
-  !codec g711ULAW
+ dial-peer voice 12 Voip
+  destination-pattern 12..
+  session target ipv4:10.12.12.1
+  codec g711ULAW
  dial-peer voice 21 Voip
   destination-pattern 21..
   session target ipv4:10.21.21.1
@@ -299,10 +299,10 @@ conf t
   destination-pattern 52..
   session target ipv4:10.52.52.1
   codec g711ULAW
- dial-peer voice 61 Voip
-  destination-pattern 61..
-  session target ipv4:10.61.61.1
-  codec g711ULAW
+ !dial-peer voice 61 Voip
+  !destination-pattern 61..
+  !session target ipv4:10.61.61.1
+  !codec g711ULAW
  dial-peer voice 62 Voip
   destination-pattern 62..
   session target ipv4:10.62.62.1
@@ -354,4 +354,5 @@ int gi 0/1
  ip ospf network point-to-point
 
 end
+
 
